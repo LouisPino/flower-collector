@@ -1,11 +1,21 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<h1>HERE'S WHERE DA FLOWERS GON' BE</h1>
-
 {%for flower in flowers%}
 
-<h1>{{flower.name}}</h1>
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ flower.name }}</span>
+      <p>Genus: {{ flower.genus }}</p>
+      <p>Description: {{ flower.description }}</p>
+      <p>Colors: 
+        {%for color in flower.colors%}
+        {{ color }}
+        {%endfor%}
+    </p>
+
+    </div>
+  </div>
 
 {%endfor%}
 
