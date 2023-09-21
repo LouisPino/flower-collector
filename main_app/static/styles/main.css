@@ -20,7 +20,7 @@ footer.page-footer {
   text-align: right;
 }
 
-.card {
+.card{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
