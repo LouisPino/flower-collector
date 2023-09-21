@@ -34,3 +34,8 @@ footer.page-footer {
 .nav-link{
   font-size: 2rem;
 }
+
+label {
+font-size: 2rem;
+color: rgb(0, 0, 0);
+}

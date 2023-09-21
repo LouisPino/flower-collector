@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Flower
 
 # Create your views here.
@@ -20,3 +21,7 @@ def flowers_detail(request, f_id):
    return render(request, 'flowers/detail.html', {
         'flower': flower
     })
+   
+class FlowerCreate(CreateView):
+    model = Flower
+    fields = '__all__'

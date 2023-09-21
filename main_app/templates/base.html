@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script defer src="{% static 'scripts/materialbox.js' %}"></script>
-    <link rel="stylesheet" href={% static 'styles/main.css'%}/>
+    <link rel="stylesheet" href={% static 'styles/man.css'%}/>
     <link href='https://fonts.googleapis.com/css?family=Indie Flower' rel='stylesheet'>
 </head>
 <body>
@@ -20,8 +20,9 @@
               <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Flower Collector</a></li>
             </ul>
             <ul class="right">
-              <li><a class="nav-link" href="/about">About</a></li>
-              <li><a class="nav-link" href="/flowers">Flowers</a></li>
+              <li><a class="nav-link" href="{% url 'about'%}">About</a></li>
+              <li><a class="nav-link" href="{% url 'flower_create'%}">Add Flower</a></li>
+              <li><a class="nav-link" href="{% url 'index'%}">Flowers</a></li>
             </ul>
           </div>
         </nav>
@@ -32,7 +33,7 @@
     {% endblock %}
   </main>
   <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2021 Louis Pino &nbsp;</div>
+    <div class="right">All Rights Reserved, &copy; 2023 Louis Pino &nbsp;</div>
   </footer>
 </body>
 </html>
