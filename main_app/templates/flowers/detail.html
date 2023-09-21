@@ -1,8 +1,7 @@
 {%extends 'base.html'%}
 
 {%block content%}
-{%for flower in flowers%}
-<a href="{%url 'detail' flower.id%}">
+
 <div class="card">
     <div class="card-content">
       <span class="card-title">{{ flower.name }}</span>
@@ -14,10 +13,9 @@
         {%endfor%}
     </p>
     </div>
-    <img class="flower-photo" src={{flower.photo}}>
+    <img class="materialboxed flower-photo" src={{flower.photo}}>
   </div>
-</a>
-{%endfor%}
+
 {%endblock%}
 
 

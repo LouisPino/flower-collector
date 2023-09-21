@@ -14,3 +14,9 @@ def flowers_index(request):
    return render(request, 'flowers/index.html', {
         'flowers': flowers
     })
+    
+def flowers_detail(request, f_id):
+   flower = Flower.objects.get(id=f_id)
+   return render(request, 'flowers/detail.html', {
+        'flower': flower
+    })
