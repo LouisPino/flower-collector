@@ -29,3 +29,8 @@ class FlowerCreate(CreateView):
 class FlowerUpdate(UpdateView):
     model = Flower
     fields = ['description', 'photo']
+    
+class FlowerDelete(DeleteView):
+    model = Flower
+    success_url='/flowers'
+    

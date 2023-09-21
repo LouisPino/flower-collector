@@ -16,7 +16,7 @@
     <img class="materialboxed flower-photo" src={{flower.photo}}>
     <div class="card-action">
       <a href="{% url 'flower_update' flower.id %}">Edit</a>
-      {% comment %} <a href="{% url 'cats_delete' cat.id %}">Delete</a> {% endcomment %}
+      <a href="{% url 'flower_delete' flower.id %}">Delete</a>
     </div>
   </div>
 
