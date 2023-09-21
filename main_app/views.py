@@ -25,3 +25,7 @@ def flowers_detail(request, f_id):
 class FlowerCreate(CreateView):
     model = Flower
     fields = '__all__'
+   
+class FlowerUpdate(UpdateView):
+    model = Flower
+    fields = ['description', 'photo']
