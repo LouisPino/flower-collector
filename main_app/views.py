@@ -28,7 +28,7 @@ class FlowerCreate(CreateView):
    
 class FlowerUpdate(UpdateView):
     model = Flower
-    fields = ['description', 'photo']
+    fields = ['genus', 'description', 'photo']
     
 class FlowerDelete(DeleteView):
     model = Flower
