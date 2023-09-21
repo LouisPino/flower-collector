@@ -1,11 +1,5 @@
 from django.shortcuts import render
-
-flowers = [
-  {'name': 'Toffee', 'colors': ['brown'], 'description': 'A light brown rose', 'genus': 'Rosa'},
-  {'name': 'Knockout', 'colors': ['pink', 'red'], 'description': 'A bush filled covered with roses', 'genus': 'Rosa'}, 
-  {'name': 'Moonshadow', 'colors': ['purple', 'pink'], 'description': 'A soft and subtly hued rose', 'genus': 'Rosa'}, 
-  {'name': 'Endless Summer', 'colors': ['purple', 'blue'], 'description': 'A bush with pom-pom shaped flowers.', 'genus': 'Hydrangea'}, 
-]
+from .models import Flower
 
 # Create your views here.
 
@@ -16,6 +10,7 @@ def about(request):
     return render(request, 'about.html')
     
 def flowers_index(request):
+   flowers = Flower.objects.all()
    return render(request, 'flowers/index.html', {
         'flowers': flowers
     })
