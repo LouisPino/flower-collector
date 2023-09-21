@@ -3,6 +3,24 @@ from django.urls import reverse
 
 from datetime import date
 
+
+TEMPS = (
+    ("C", "Cold"),
+    ("M", "Medium"),
+    ("H", "Hot")
+    )
+ARIDITIES = (
+    ("D", "Dry"),
+    ("M", "Medium"),
+    ("W", "Wet")
+    )
+
+class Location(models.Model):
+    aridity = models.CharField(max_length=1, choices=ARIDITIES, default=ARIDITIES[0][0])
+    temperature = models.CharField(max_length=1, choices=TEMPS, default=TEMPS[0][0])
+
+
+
 class Flower(models.Model):
     name = models.CharField(max_length=100)
     colors = models.CharField(max_length=100)
@@ -10,6 +28,7 @@ class Flower(models.Model):
     genus = models.CharField(max_length=100)
     photo = models.CharField(max_length=500)
     days_between_watering = models.IntegerField("Ideal # of days between watering")
+    viable_locations = models.ManyToManyField(Location)
    
     def __str__(self):
         return f'{self.name}, {self.genus}, {self.id}'
@@ -24,7 +43,8 @@ class Flower(models.Model):
             return True
     
     
-    
+
+  
 class Watering(models.Model):
     date= models.DateField()
     flower = models.ForeignKey(Flower, on_delete=models.CASCADE)
