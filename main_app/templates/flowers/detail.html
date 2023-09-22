@@ -47,18 +47,30 @@
     </form>
     </div>
   </div>
-
+<div class="locations">
   <div class="card">
     <div class="card-content">
       <h2>Preferred Locations</h2>
       {%for location in flower.viable_locations.all%}
       <p>Temperature: {{ location.get_temperature_display }}</p>
       <p>Aridity: {{ location.get_aridity_display }}</p>
-<hr>
-{%endfor%}
-
+      <a href="{%url 'location_remove' flower.id location.id%}">DELETE</a>
+      <hr>
+      {%endfor%}
     </div>
   </div>
+  <div class="card">
+    <div class="card-content">
+      <h2>Add a location to this flower</h2>
+      {%for location in unused_locations%}
+      <p>Temperature: {{ location.get_temperature_display }}</p>
+      <p>Aridity: {{ location.get_aridity_display }}</p>
+      <a href="{%url 'location_add' flower.id location.id%}">ADD</a>
+      <hr>
+      {%endfor%}
+    </div>
+  </div>
+</div>
 
 <script>
 

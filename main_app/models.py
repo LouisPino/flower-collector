@@ -9,6 +9,7 @@ TEMPS = (
     ("M", "Medium"),
     ("H", "Hot")
     )
+
 ARIDITIES = (
     ("D", "Dry"),
     ("M", "Medium"),

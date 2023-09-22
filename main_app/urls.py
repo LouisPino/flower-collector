@@ -13,4 +13,6 @@ urlpatterns = [
     path('locations/', views.LocationIndex.as_view(), name='location_index'),
     path('locations/create', views.LocationCreate.as_view(), name='location_create'),
     path('locations/<int:l_id>', views.location_detail, name='location_detail'),
+    path('locations/<int:f_id>/<int:l_id>/remove/', views.location_remove, name='location_remove'),
+    path('locations/<int:f_id>/<int:l_id>/add', views.location_add, name='location_add'),
 ]

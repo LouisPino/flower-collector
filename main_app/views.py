@@ -19,9 +19,13 @@ def flowers_index(request):
     
 def flowers_detail(request, f_id):
    flower = Flower.objects.get(id=f_id)
+   used_locations = flower.viable_locations.all().values_list('id')
+   unused_locations = Location.objects.exclude(id__in=used_locations)
+   
    return render(request, 'flowers/detail.html', {
         'flower': flower,
-        "watering_form": WateringForm
+        "watering_form": WateringForm,
+        "unused_locations": unused_locations
     })
    
 class FlowerCreate(CreateView):
@@ -57,4 +61,12 @@ def location_detail(request, l_id):
    
 class LocationIndex(ListView):
     model = Location
+    
+def location_add(request, f_id, l_id):
+    Flower.objects.get(id=f_id).viable_locations.add(l_id)
+    return redirect('detail', f_id=f_id)
+
+def location_remove(request, f_id, l_id):
+    Flower.objects.get(id=f_id).viable_locations.remove(l_id)
+    return redirect('detail', f_id=f_id)
     
