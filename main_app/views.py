@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, UpdateView, DeleteView
-from .models import Flower
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView
+from .models import Flower, Location
 from .forms import WateringForm
 
 # Create your views here.
@@ -44,3 +44,17 @@ def add_watering(request, f_id):
         new_watering.flower_id = f_id
         new_watering.save()
     return redirect('detail', f_id = f_id)
+
+class LocationCreate(CreateView):
+    model = Location
+    fields = '__all__'
+    
+def location_detail(request, l_id):
+   location = Location.objects.get(id=l_id)
+   return render(request, 'locations/detail.html', {
+        'location': location,
+    })
+   
+class LocationIndex(ListView):
+    model = Location
+    

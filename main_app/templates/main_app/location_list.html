@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%for location in location_list%}
+<a href="{%url 'location_detail' location.id%}">
+    <div class="card">
+        <div class="card-content">
+          <span class="card-title">Location</span>
+          <p>Temperature: {{ location.get_temperature_display }}</p>
+          <p>Aridity: {{ location.get_aridity_display }}</p>
+        </div>
+        </div>
+</a>
+{%endfor%}
+{%endblock%}
+

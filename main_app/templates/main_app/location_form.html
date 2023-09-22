@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+
+{%if object%}
+    <h1>{{object.name}}</h1>
+    {%else%}
+    <h1>New Location</h1>
+{%endif%}
+
+<form action="" method="POST">
+    {% csrf_token %}
+<table>
+{{form.as_table}}
+</table>
+<input type="submit" value="Submit">
+</form>
+
+
+<script>
+    const selectEl1 = document.getElementById('id_aridity');
+    const selectEl2 = document.getElementById('id_temperature');
+    M.FormSelect.init(selectEl1);
+    M.FormSelect.init(selectEl2);
+  </script>
+
+</script>
+
+{%endblock%}

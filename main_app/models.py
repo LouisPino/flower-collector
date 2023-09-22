@@ -19,6 +19,9 @@ class Location(models.Model):
     aridity = models.CharField(max_length=1, choices=ARIDITIES, default=ARIDITIES[0][0])
     temperature = models.CharField(max_length=1, choices=TEMPS, default=TEMPS[0][0])
 
+    def get_absolute_url(self):
+        return reverse("location_detail", kwargs={"pk": self.pk})
+    
 
 
 class Flower(models.Model):
