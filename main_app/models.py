@@ -20,7 +20,7 @@ class Location(models.Model):
     temperature = models.CharField(max_length=1, choices=TEMPS, default=TEMPS[0][0])
 
     def get_absolute_url(self):
-        return reverse("location_detail", kwargs={"pk": self.pk})
+        return reverse("location_detail", kwargs={"l_id": self.pk})
     
 
 
